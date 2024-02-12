@@ -19,8 +19,8 @@ document.querySelector('.form').addEventListener('submit', function (event) {
   const delayStep = parseInt(formData.get('step'));
   const amount = parseInt(formData.get('amount'));
 
-  for (let i = 0; i < amount; i++) {
-    const delay = firstDelay + i * delayStep;
+  for (let i = 1; i <= amount; i++) {
+    const delay = firstDelay + (i - 1) * delayStep;
     createPromise(i + 1, delay)
       .then(({ position, delay }) => {
         Notiflix.Notify.success(
